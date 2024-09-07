@@ -9,7 +9,7 @@ We propose an end-to-end visuomotor navigation framework that leverages Neural R
 
 ## Overall Pipeline
 
-![](doc/network.jpg)
+![](doc/network.png)
 
 ## Prequisites
     python 3.9.8
@@ -44,6 +44,6 @@ Please reminder to specify the `mode`(test), `GPU`,`DATA_PATH`,`SCENES_DIR` and 
 
 
 ## Quantitative results:
-![](doc/result.jpg)
+![](doc/result.png)
 
 This repository is still being collated and improved. Please raise an issue if you have any questions about the code implementation.
