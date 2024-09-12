@@ -11,6 +11,8 @@ We propose an end-to-end visuomotor navigation framework that leverages Neural R
 
 ![](doc/network.png)
 
+RGBD observations are stored in the implicit NeRF structure during navigation. We introduce SRA to extract historical memory and promote intelligent behavior patterns. SRA begins by using the current viewpoint as a trigger and coarsely extracts memory cues within the agent's surrounding space. These cues, combined with the target image, are refined through attention operation that focuses the agent on historical data most indicative of the goal's distribution. The memory feature is finally integrated with the instant perceptions to make navigation decisions.
+
 ## Prequisites
     python 3.9.8
     CUDA 12.1
@@ -21,29 +23,33 @@ We propose an end-to-end visuomotor navigation framework that leverages Neural R
 
 ## Usage
 ### Dataset
-The project uses the **Habitat** simulator and **Gibson** environment dataset. The installation of **Habitat** refers to [https://github.com/facebookresearch/habitat-lab](https://github.com/facebookresearch/habitat-lab), and dataset of Gibson environment can be seen at [https://github.com/StanfordVL/GibsonEnv#database](https://github.com/StanfordVL/GibsonEnv#database). 
+The project uses the **Habitat** simulator and photorealistic **Gibson** scene dataset. Please refer to [https://github.com/facebookresearch/habitat-lab](https://github.com/facebookresearch/habitat-lab) for the installation of **Habitat**, and dataset of **Gibson** environment can be downloaded at [https://github.com/StanfordVL/GibsonEnv#database](https://github.com/StanfordVL/GibsonEnv#database). 
 
 
 ### Training
-Train the network by running 
+Train the network by running:
     
     python main.py --mode 'train'   
 
-Please reminder to specify the `mode`(train), `GPU`,`dataset`(path to dataset),`checkpoint_path`(path to save result) in the scripts.
+The training results and saved model parameters will be stored in `checkpoint_path`. Please refer to the paper for more detailed training procedures.
 
-The training results and saved model parameters will be saved in `checkpoint_path`.
+Please remember to specify the `mode` (train), `GPU`, `dataset` (path to dataset), and `checkpoint_path` (path to save result) in the scripts.
+
+
+
+
 
 ### Testing
 
-Please run 
+Test the navigation performance of the model by running: 
 
     python main.py --mode 'test'
 
-Please reminder to specify the `mode`(test), `GPU`,`DATA_PATH`,`SCENES_DIR` and  `model_load` in the scripts.
+Note that NeRF parameters are trained online for scene memory construction, even during model testing.
+
+Please remember to specify the `mode`(test), `GPU`, `DATA_PATH`, `SCENES_DIR` and  `model_load` in the scripts.
 
 
 
-## Quantitative results:
-![](doc/result.png)
 
 This repository is still being collated and improved. Please raise an issue if you have any questions about the code implementation.
