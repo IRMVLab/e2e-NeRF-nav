@@ -37,8 +37,6 @@ Please remember to specify the `mode` (train), `GPU`, `dataset` (path to dataset
 
 
 
-
-
 ### Testing
 
 Test the navigation performance of the model by running: 
@@ -50,6 +48,8 @@ Note that NeRF parameters are trained online for scene memory construction, even
 Please remember to specify the `mode`(test), `GPU`, `DATA_PATH`, `SCENES_DIR` and  `model_load` in the scripts.
 
 
+### Citation
 
+If you find our work interesting, please cite our paper. (The paper is still under the publication process and will be posted on IEEE Xplore soon. We will update the BibTeX entry later.)
 
-This repository is still being collated and improved. Please raise an issue if you have any questions about the code implementation.
+This repository will be further improved. Please raise an issue if you have any questions about the code implementation.
